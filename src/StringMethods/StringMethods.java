@@ -78,28 +78,43 @@ public class StringMethods {
 
 	// Return the sum of all numerical digits in the String
 	public static int numeralSum(String s) {
-		
+
 		return 0;
 	}
 
 	// Return the number of times String substring appears in String s
 	public static int substringCount(String s, String substring) {
-		return 0;
+		int index = 0;
+		int counter = 0;
+		while (index >= 0) {
+			index = s.indexOf(substring, index);
+			if (index >= 0) {
+				counter++;
+				index += substring.length();
+			}
+		}
+		return counter;
+
 	}
 
 	// Call Utitilities.encrypt to encrypt String s
 	public static String encrypt(String s, char key) {
-		return null;
+		return Utilities.encrypt(s.getBytes(), (byte) key);
 	}
 
 	// Call Utilities.decrypt to decrypt the cyphertext
 	public static String decrypt(String s, char key) {
-		return null;
+		return Utilities.decrypt(s, (byte) key);
 	}
 
 	// Return the number of words in String s that end with String substring
 	// You can assume there are no punctuation marks between words
 	public static int wordsEndsWithSubstring(String s, String substring) {
+		for (int i = 0; i < s.length(); i++) {
+			if (s.contains(substring)) {
+				
+			}
+		}
 		return 0;
 	}
 
@@ -114,6 +129,9 @@ public class StringMethods {
 	// palindromes are words or phrases are read the same forward as backward.
 	// HINT: ignore/remove all punctuation and spaces in the String
 	public static boolean palindrome(String s) {
+		s.trim();
+		s.replaceAll("\\p{Punct}", "");
+
 		return true;
 	}
 
