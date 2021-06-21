@@ -78,8 +78,15 @@ public class StringMethods {
 
 	// Return the sum of all numerical digits in the String
 	public static int numeralSum(String s) {
+		int sum = 0;
 
-		return 0;
+		for (int i = 0; i < s.length(); i++) {
+			char ch = s.charAt(i);
+			if (Character.isDigit(ch)) {
+				sum += Character.getNumericValue(ch);
+			}
+		}
+		return sum;
 	}
 
 	// Return the number of times String substring appears in String s
@@ -110,18 +117,26 @@ public class StringMethods {
 	// Return the number of words in String s that end with String substring
 	// You can assume there are no punctuation marks between words
 	public static int wordsEndsWithSubstring(String s, String substring) {
-		for (int i = 0; i < s.length(); i++) {
-			if (s.contains(substring)) {
-				
+		int counter = 0;
+		String[] words = s.split(" ");
+		for (String word : words) {
+			if (word.endsWith(substring)) {
+				counter++;
 			}
+
 		}
-		return 0;
+		return counter;
 	}
 
 	// Given String s, return the number of characters between the first occurrence
 	// of String substring and the final occurrence
 	// You can assume that substring will appear at least twice
 	public static int distance(String s, String substring) {
+		// two for each loops looking for substring. find substring, subtract the
+		// indexes
+
+		String[] words = s.split(" ");
+
 		return 0;
 	}
 
@@ -129,9 +144,8 @@ public class StringMethods {
 	// palindromes are words or phrases are read the same forward as backward.
 	// HINT: ignore/remove all punctuation and spaces in the String
 	public static boolean palindrome(String s) {
-		s.trim();
-		s.replaceAll("\\p{Punct}", "");
-
+		String trim = s.toLowerCase().trim();
+		String valid = "abcdefghijklmnopqrstuvwxyz";
 		return true;
 	}
 
