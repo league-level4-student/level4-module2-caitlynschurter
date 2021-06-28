@@ -132,12 +132,11 @@ public class StringMethods {
 	// of String substring and the final occurrence
 	// You can assume that substring will appear at least twice
 	public static int distance(String s, String substring) {
-		// two for each loops looking for substring. find substring, subtract the
-		// indexes
-
-		String[] words = s.split(" ");
-
-		return 0;
+		
+		int first = s.indexOf(substring);
+		int last = s.lastIndexOf(substring);
+		
+		return last-first-substring.length();
 	}
 
 	// Return true if String s is a palindrome
@@ -146,6 +145,21 @@ public class StringMethods {
 	public static boolean palindrome(String s) {
 		String trim = s.toLowerCase().trim();
 		String valid = "abcdefghijklmnopqrstuvwxyz";
+		String norm = "";
+		
+		for(int i = 0; i < trim.length(); i++) {
+			if(valid.indexOf(trim.charAt(i)) >= 0) {
+				norm += trim.charAt(i);
+			}
+		}
+		
+		for(int i = 0; i < norm.length()/2; i++) {
+			char left = norm.charAt(i);
+			char right = norm.charAt(norm.length() -1 -i);
+			if(left != right) {
+				return false;
+			}
+		}
 		return true;
 	}
 
